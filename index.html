@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="hangman-web-corentin323/index.css">
+    <title>Hangman Niveau 1</title>
+   </head>
+   <body>
+    <div style="text-align:center">
+      <h1 class="titre">Hangman niveau 1</h1>
+      
+      <br>
+      <br>
+      <p>Mot à deviner : 
+        {{range .Lettreafficher}}
+            {{.}} 
+        {{end}}
+      </p> 
+      <h3>Il vous reste {{.Vie}} vie.</h3>
+      <p>Lettre déjà utilisée: {{.Lettreutilise}}</p>
+        <form method="post">
+            <input type="text" name="lettre" maxlength="1" placeholder="Entrez une lettre">
+            <button type="submit">Valider</button>
+        </form>
+    {{if .Fini}}
+    <h4>Pendu!</h4>
+    {{end}}
+
+    {{if .Finie}}
+    <h4>Bravo!</h4>
+    {{end}}
+      </p>
+      <nobr>
+         <br>
+         <br>
+         <form action="/acc" method="GET">
+            <button type="submit">Retour</button>
+        </form>
+    </div>
+   </body>
+</html>
